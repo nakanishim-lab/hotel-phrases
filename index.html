@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>English Pronunciation Checker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; background: #f8f8fc; color: #222; margin: 0; padding: 2em;}
+    h1 { text-align: center; }
+    .phrase-list { max-width: 600px; margin: auto; }
+    .phrase-block { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #ddd; margin-bottom: 1em; padding: 1em; }
+    .main { font-size: 1.2em; }
+    .alt { color: #555; font-size: 0.97em; margin-top: 0.5em;}
+    button { margin-top: 0.7em; padding: 0.5em 1.5em; font-size: 1em; border-radius: 5px; border: 1px solid #aaa; background: #e2eefd; cursor: pointer;}
+    button:hover { background: #c3dbfc; }
+  </style>
+</head>
+<body>
+  <h1>English Pronunciation Checker</h1>
+  <p style="text-align:center;">Click "Speak" to hear the phrase.</p>
+  <div class="phrase-list">
+    <div class="phrase-block">
+      <div class="main">May I see your passport?</div>
+      <div class="alt">Passport, please.</div>
+      <button onclick="speak('May I see your passport? Passport, please.')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">Yes, here you are.</div>
+      <button onclick="speak('Yes, here you are.')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">Where did you fly in from?</div>
+      <div class="alt">Where are you coming from?</div>
+      <button onclick="speak('Where did you fly in from? Where are you coming from?')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">I came from HND/KIX airport.</div>
+      <div class="alt">I am coming from Japan/America/[country].</div>
+      <button onclick="speak('I came from HND KIX airport. I am coming from Japan, America, country.')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">What is the purpose of your visit?</div>
+      <button onclick="speak('What is the purpose of your visit?')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">For sightseeing.</div>
+      <div class="alt">For business. To visit friends or family.</div>
+      <button onclick="speak('For sightseeing. For business. To visit friends or family.')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">How long do you intend to stay?</div>
+      <div class="alt">How long will you be here?</div>
+      <button onclick="speak('How long do you intend to stay? How long will you be here?')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">I will be here for 7 days.</div>
+      <div class="alt">For 1 month. For 2 months.</div>
+      <button onclick="speak('I will be here for 7 days. For 1 month. For 2 months.')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">Where will you be staying?</div>
+      <button onclick="speak('Where will you be staying?')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">I will be staying at [name of hotel].</div>
+      <div class="alt">With friends or family.</div>
+      <button onclick="speak('I will be staying at name of hotel. With friends or family.')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">Do you have anything to declare?</div>
+      <button onclick="speak('Do you have anything to declare?')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">I have nothing to declare.</div>
+      <button onclick="speak('I have nothing to declare.')">Speak</button>
+    </div>
+    <div class="phrase-block">
+      <div class="main">Can you say that again?</div>
+      <div class="alt">Could you speak more slowly?</div>
+      <button onclick="speak('Can you say that again? Could you speak more slowly?')">Speak</button>
+    </div>
+  </div>
+  <script>
+    function speak(text) {
+      if ('speechSynthesis' in window) {
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'en-US';
+        window.speechSynthesis.speak(utter);
+      } else {
+        alert('Sorry, your browser does not support speech synthesis.');
+      }
+    }
+  </script>
+</body>
+</html>
